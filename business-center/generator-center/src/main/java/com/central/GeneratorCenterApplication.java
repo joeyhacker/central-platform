@@ -11,8 +11,6 @@ import org.springframework.context.annotation.Configuration;
 @EnableDiscoveryClient
 @SpringBootApplication
 public class GeneratorCenterApplication {
-
-
 	public static void main(String[] args) {
 		SpringApplication.run(GeneratorCenterApplication.class, args);
 	}
