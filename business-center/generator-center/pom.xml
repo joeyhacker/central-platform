@@ -1,32 +1,30 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <parent>
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
 		<groupId>com.central</groupId>
 		<artifactId>business-center</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
-  <artifactId>file-center</artifactId>
-  
-  	<dependencies>
 
-		<!-- 服务追踪 -->
+	<artifactId>generator-center</artifactId>
+
+	<dependencies>
+		<!-- 公共实体类模块 -->
 		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-zipkin</artifactId>
-		</dependency>
-
-		 	<!-- 公共实体类模块 -->
-   		<dependency>
 			<groupId>com.central</groupId>
 			<artifactId>api-commons</artifactId>
 			<version>${core.version}</version>
 		</dependency>
-   		<!-- 关系型和非关系型数据库配置 -->
+		<!-- 关系型和非关系型数据库配置 -->
 		<dependency>
 			<groupId>com.central</groupId>
 			<artifactId>db-core</artifactId>
 			<version>${core.version}</version>
 		</dependency>
+
+
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -71,18 +69,18 @@
 			<artifactId>commons-lang3</artifactId>
 		</dependency>
 		<dependency>
-		    <groupId>commons-collections</groupId>
-		    <artifactId>commons-collections</artifactId>
-		    <version>3.2.2</version>
+			<groupId>commons-collections</groupId>
+			<artifactId>commons-collections</artifactId>
+			<version>3.2.2</version>
 		</dependency>
 
-		
 
-  		<dependency>
+
+		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
- 		 <dependency>
+		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
 		</dependency>
@@ -95,9 +93,9 @@
 			<artifactId>spring-boot-configuration-processor</artifactId>
 			<optional>true</optional>
 		</dependency>
-		
-		
-		
+
+
+
 		<!-- swagger -->
 		<dependency>
 			<groupId>io.springfox</groupId>
@@ -120,30 +118,25 @@
 			<artifactId>swagger-bootstrap-ui</artifactId>
 			<version>1.6</version>
 		</dependency>
-		 <dependency>
+		<dependency>
 			<groupId>com.zyplayer</groupId>
 			<artifactId>swagger-mg-ui</artifactId>
-			<version>1.0.4</version>
+			<version>1.0.1</version>
 		</dependency>
-		 
-		<!-- https://mvnrepository.com/artifact/com.aliyun.oss/aliyun-sdk-oss -->
+
 		<dependency>
-		    <groupId>com.aliyun.oss</groupId>
-		    <artifactId>aliyun-sdk-oss</artifactId>
-		    <version>2.8.3</version>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>2.5</version>
 		</dependency>
-		
-		 <!-- 七牛依赖 -->
-        <dependency>
-            <groupId>com.qiniu</groupId>
-            <artifactId>qiniu-java-sdk</artifactId>
-            <version>[7.2.0, 7.2.99]</version>
-        </dependency>
 
+		<dependency>
+			<artifactId>velocity</artifactId>
+			<groupId>org.apache.velocity</groupId>
+			<version>1.7</version>
+		</dependency>
 
-		 
 	</dependencies>
-
 
 	<!-- 形成带第三方jar包的可执行jar包，jar包目录结构如下 application.properties lib META-INF mybatis
 		org -->
@@ -185,7 +178,22 @@
 
 		</plugins>
 		<finalName>${project.artifactId}</finalName>
+
+		<resources>
+			<resource>
+				<directory>src/main/java</directory>
+				<includes>
+					<include>**/*.properties</include>
+					<include>**/*.xml</include>
+				</includes>
+				<!-- 是否替换资源中的属性-->
+				<filtering>false</filtering>
+			</resource>
+			<resource>
+				<directory>src/main/resources</directory>
+			</resource>
+		</resources>
+
 	</build>
 
-  
 </project>
