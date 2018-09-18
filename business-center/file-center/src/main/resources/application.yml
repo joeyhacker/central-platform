@@ -9,20 +9,20 @@ management:
   endpoint:
     health:
       show-details: always  
-aliyun:
-  oss:
-    access-key: 你的密钥
-    accessKeySecret: 你的密钥
-    endpoint: 你的端点
-    bucketName: 你的名称
-    domain: 你的说明
+#aliyun:
+#  oss:
+#    access-key: 你的密钥
+#    accessKeySecret: 你的密钥
+#    endpoint: 你的端点
+#    bucketName: 你的名称
+#    domain: 你的说明
 
 qiniu:
   oss:
     access-key: 你的密钥
     accessKeySecret: 你的密钥
-    endpoint: 你的端点
-    bucketName: 你的名称
+    endpoint: 你的端点（CDN地址）
+    bucketName: 存储空间名
     
 spring:
   application:
