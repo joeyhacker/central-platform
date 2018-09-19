@@ -93,13 +93,13 @@ public class SysUserServiceImpl implements SysUserService {
 		SysUser persistenceUser = sysUserDao.findByUsername(sysUser.getUsername());
 		if (persistenceUser != null && persistenceUser.getUsername() != null) {
 			throw new IllegalArgumentException("用户名已存在");
+
 		}
 
 		sysUser.setPassword(passwordEncoder.encode(sysUser.getPassword()));
 		sysUser.setEnabled(Boolean.TRUE);
 		sysUser.setCreateTime(new Date());
 		sysUser.setUpdateTime(sysUser.getCreateTime());
-
 		sysUserDao.save(sysUser);
 		log.info("添加用户：{}", sysUser);
 	}
@@ -212,6 +212,7 @@ public class SysUserServiceImpl implements SysUserService {
 	public void setRoleToUser(Long id, Set<Long> roleIds) {
 		SysUser sysUser = sysUserDao.findById(id);
 		if (sysUser == null) {
+
 			throw new IllegalArgumentException("用户不存在");
 		}
 
@@ -276,7 +277,8 @@ public class SysUserServiceImpl implements SysUserService {
 
 		SysUser appUser = sysUserDao.findById(id);
 		if (appUser == null) {
-			throw new IllegalArgumentException("用户不存在");
+			return Result.failed("用户不存在");
+			//throw new IllegalArgumentException("用户不存在");
 		}
 		appUser.setEnabled(enabled);
 		appUser.setUpdateTime(new Date());
@@ -292,19 +294,23 @@ public class SysUserServiceImpl implements SysUserService {
 	public Result saveOrUpdate(SysUser sysUser) {
 		String username = sysUser.getUsername();
 		if (StringUtils.isBlank(username)) {
-			throw new IllegalArgumentException("用户名不能为空");
+			//throw new IllegalArgumentException("用户名不能为空");
+			return Result.failed("用户名不能为空");
 		}
 
 		if (PhoneUtil.checkPhone(username)) {// 防止用手机号直接当用户名，手机号要发短信验证
-			throw new IllegalArgumentException("用户名要包含英文字符");
+			//throw new IllegalArgumentException("用户名要包含英文字符");
+			return Result.failed("用户名要包含英文字符");
 		}
 
 		if (username.contains("@")) {// 防止用邮箱直接当用户名，邮箱也要发送验证（暂未开发）
-			throw new IllegalArgumentException("用户名不能包含@");
+			//throw new IllegalArgumentException("用户名不能包含@");
+			return Result.failed("用户名不能包含@");
 		}
 
 		if (username.contains("|")) {
-			throw new IllegalArgumentException("用户名不能包含|字符");
+			//throw new IllegalArgumentException("用户名不能包含|字符");
+			return Result.failed("用户名不能包含|字符");
 		}
 
 		if (StringUtils.isBlank(sysUser.getNickname())) {
@@ -324,7 +330,8 @@ public class SysUserServiceImpl implements SysUserService {
 		if (sysUser.getId() == null) {
 			SysUser persistenceUser = sysUserDao.findByUsername(sysUser.getUsername());
 			if (persistenceUser != null && persistenceUser.getUsername() != null) {
-				throw new IllegalArgumentException("用户名已存在");
+				//throw new IllegalArgumentException("用户名已存在");
+				return Result.failed("用户名已存在");
 			}
 			sysUser.setUpdateTime(sysUser.getCreateTime());
 			i = sysUserDao.save(sysUser);
