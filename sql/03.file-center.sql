@@ -1,4 +1,4 @@
-CREATE DATABASE IF NOT EXISTS `file_center` DEFAULT CHARACTER SET = utf8mb4;
+CREATE DATABASE IF NOT EXISTS `file_center` DEFAULT CHARACTER SET = utf8;
 Use `file_center`;
 
 
@@ -20,4 +20,4 @@ CREATE TABLE `file_info` (
   `createTime` datetime NOT NULL,
   PRIMARY KEY (`id`),
   KEY `createTime` (`createTime`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;

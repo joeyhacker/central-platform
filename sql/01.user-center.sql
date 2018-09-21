@@ -1,5 +1,5 @@
 ﻿# 导出 user-center 的数据库结构
-CREATE DATABASE IF NOT EXISTS `user-center` DEFAULT CHARACTER SET = utf8mb4;
+CREATE DATABASE IF NOT EXISTS `user-center` DEFAULT CHARACTER SET = utf8;
 Use `user-center`;
 #
 # Structure for table "sys_menu"
@@ -18,7 +18,7 @@ CREATE TABLE `sys_menu` (
   `isMenu` int(11) DEFAULT NULL COMMENT '是否菜单 1 是 2 不是',
   `hidden` int(11) DEFAULT NULL COMMENT '是否隐藏,0 false 1 true',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8;
 
 #
 # Data for table "sys_menu"
@@ -39,7 +39,7 @@ CREATE TABLE `sys_permission` (
   `updateTime` datetime NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `permission` (`permission`)
-) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8;
 
 #
 # Data for table "sys_permission"
@@ -60,7 +60,7 @@ CREATE TABLE `sys_role` (
   `updateTime` datetime NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `code` (`code`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 #
 # Data for table "sys_role"
@@ -77,7 +77,7 @@ CREATE TABLE `sys_role_menu` (
   `roleId` int(11) NOT NULL,
   `menuId` int(11) NOT NULL,
   PRIMARY KEY (`roleId`,`menuId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 #
 # Data for table "sys_role_menu"
@@ -94,7 +94,7 @@ CREATE TABLE `sys_role_permission` (
   `roleId` int(11) NOT NULL,
   `permissionId` int(11) NOT NULL,
   PRIMARY KEY (`roleId`,`permissionId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 #
 # Data for table "sys_role_permission"
@@ -111,7 +111,7 @@ CREATE TABLE `sys_role_user` (
   `userId` int(11) NOT NULL,
   `roleId` int(11) NOT NULL,
   PRIMARY KEY (`userId`,`roleId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 #
 # Data for table "sys_role_user"
@@ -138,7 +138,7 @@ CREATE TABLE `sys_user` (
   `updateTime` datetime NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `username` (`username`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 
 #
 # Data for table "sys_user"

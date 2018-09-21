@@ -1,5 +1,5 @@
 ﻿###导出 sms-center 的数据库结构
-CREATE DATABASE IF NOT EXISTS `log-center` /*!40100 DEFAULT CHARACTER SET utf8mb4 */; 
+CREATE DATABASE IF NOT EXISTS `log-center` /*!40100 DEFAULT CHARACTER SET utf8 */; 
 USE `log-center`;
 SET FOREIGN_KEY_CHECKS=0;
 SET FOREIGN_KEY_CHECKS=0;
@@ -17,4 +17,4 @@ CREATE TABLE `sys_log` (
   `flag` tinyint(1) NOT NULL,
   `createTime` datetime NOT NULL,
   PRIMARY KEY (`id`) 
-) ENGINE=archive DEFAULT CHARSET=utf8mb4;
+) ENGINE=archive DEFAULT CHARSET=utf8;

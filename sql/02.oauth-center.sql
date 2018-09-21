@@ -13,6 +13,9 @@ File Encoding         : 65001
 Date: 2018-08-23 17:13:40
 */
 
+CREATE DATABASE IF NOT EXISTS `oauth-center` DEFAULT CHARACTER SET = utf8;
+Use `oauth-center`;
+
 SET FOREIGN_KEY_CHECKS=0;
 
 -- ----------------------------
@@ -53,7 +56,7 @@ CREATE TABLE `sys_client_service` (
   `clientId` int(11) NOT NULL COMMENT '应用标识',
   `serviceId` int(11) NOT NULL COMMENT '服务权限标识',
   PRIMARY KEY (`clientId`,`serviceId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of sys_client_service
@@ -75,7 +78,7 @@ CREATE TABLE `sys_service` (
   `updateTime` datetime NOT NULL,
   `isMenu` int(11) DEFAULT NULL COMMENT '是否菜单 1 是 2 不是',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of sys_service

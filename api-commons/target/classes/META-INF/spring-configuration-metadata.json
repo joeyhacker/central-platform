@@ -1,0 +1,22 @@
+{
+  "hints": [],
+  "groups": [
+    {
+      "sourceType": "com.central.model.properties.PermitUrlProperties",
+      "name": "permit",
+      "type": "com.central.model.properties.PermitUrlProperties"
+    }
+  ],
+  "properties": [
+    {
+      "sourceType": "com.central.model.properties.PermitUrlProperties",
+      "name": "permit.http-urls",
+      "type": "java.lang.String[]"
+    },
+    {
+      "sourceType": "com.central.model.properties.PermitUrlProperties",
+      "name": "permit.oauth-urls",
+      "type": "java.lang.String[]"
+    }
+  ]
+}
