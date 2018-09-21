@@ -34,7 +34,7 @@ spring:
     password: notify123456
     properties:
         mail.smtp.auth : true
-        mail.smtp.timeout : 2000
+        mail.smtp.timeout : 10000
         mail.smtp.starttls.enable : true
         mail.smtp.starttls.required : true
   zipkin:
