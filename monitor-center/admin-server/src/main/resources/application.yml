@@ -30,8 +30,8 @@ spring:
         location: turbine
   mail:
     host: smtp.163.com
-    username: 18810370506
-    password: joey48841786
+    username: notify_joey
+    password: notify123456
     properties:
         mail.smtp.auth : true
         mail.smtp.timeout : 2000
